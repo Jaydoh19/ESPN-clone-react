@@ -2,7 +2,9 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div className="bg-background text-foreground">
+      <h1 className="text-3xl font-semibold">ESPN Clone</h1>
+    </div>
   )
 }
 
