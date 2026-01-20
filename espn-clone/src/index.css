@@ -10,7 +10,6 @@
 
   body {
     background: linear-gradient(100deg, #0d121d 0%, #1a1f2b 100%);
-    min-height: 100vh;
     font-family: "Roboto", sans-serif;
     color: white;
   }

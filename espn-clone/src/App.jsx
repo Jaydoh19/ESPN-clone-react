@@ -1,10 +1,24 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Hero from './pages/Hero'
+import Scores from './pages/Scores'
+import Standings from './pages/Standings'
+import Stats from './pages/Stats'
+import Navbar from './layout/Navbar'
+import Teams from './pages/Teams'
 
 const App = () => {
   return (
-    <div className="bg-background text-foreground">
-      <h1 className="text-3xl font-semibold">ESPN Clone</h1>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/scores" element={<Scores />} />
+        <Route path="/standings" element={<Standings />} />
+        <Route path="/stats" element={<Stats />} />
+        <Route path="/teams" element={<Teams />} />
+      </Routes>
+    </>
   )
 }
 
