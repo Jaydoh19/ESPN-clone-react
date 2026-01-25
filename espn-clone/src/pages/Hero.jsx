@@ -1,8 +1,19 @@
-import React from 'react'
-import { Activity, ArrowLeft, ArrowRight, Calendar, RefreshCcw, Star, Trophy } from 'lucide-react'
+import React, { useState } from 'react'
+import { Activity, ArrowLeft, ArrowRight, Award, Calendar, RefreshCcw, Star, Trophy } from 'lucide-react'
 import { GameCard } from '../components/GameCard'
+import WesternStandings from '../components/WesternStandings'
+import EasternStandings from '../components/EasternStandings'
+import TopPoints from '../components/TopPoints'
+import TopRebounds from '../components/TopRebounds'
+import TopAssists from '../components/TopAssists'
 
 const Hero = () => {
+
+  const [conference, setConference] = useState('west') // 'west' | 'east'
+  const [stats, setStats] = useState('points') //'rebounds' | 'assists' 
+
+  
+
   return (
     <section className='flex flex-col justify-center items-center mt-36 overflow-hidden mb-10'>
       <div className='md:w-3/4 md:py-10 md:px-10 py-6 px-6 rounded-2xl overflow-hidden relative'>
@@ -88,19 +99,104 @@ const Hero = () => {
           </div>
           <div className='flex items-center justify-center gap-2'>
             <button className='bg-gray-600/20 p-2 rounded-xl hover:bg-gray-600/40 transition-colors ease-out cursor-pointer'>
-              <RefreshCcw className='w-5 h-5 text-gray-400'/>
+              <RefreshCcw className='w-5 h-5 text-gray-400' />
             </button>
             <button className='bg-gray-600/20 p-2 rounded-xl hover:bg-gray-600/40 transition-colors ease-out cursor-pointer'>
-              <ArrowLeft className='w-5 h-5 text-gray-400'/>
+              <ArrowLeft className='w-5 h-5 text-gray-400' />
             </button>
             <button className='bg-gray-600/20 p-2 rounded-xl hover:bg-gray-600/40 transition-colors ease-out cursor-pointer'>
-              <ArrowRight className='w-5 h-5 text-gray-400'/>
+              <ArrowRight className='w-5 h-5 text-gray-400' />
             </button>
           </div>
         </div>
+
+        {/*Game Cards */}
         <div className='mt-5 w-1/2 justify-center flex gap-3 mx-auto'>
           <GameCard />
           <GameCard />
+        </div>
+
+        <div className='flex grid-cols-2 items-center justify-center gap-5 mt-10'>
+          {/*Standings */}
+          <div className='rounded-xl bg-linear-to-tr from-[#0d121d] to-[#1a1f2b] border border-gray-400/20 p-5 w-full'>
+            <div className='flex items-center justify-between'>
+              <div className='flex gap-1 items-center'>
+                <Trophy className='w-6 h-6 text-yellow-400 mr-2' />
+                <p className='font-bold text-2xl'>Standings</p>
+              </div>
+              <div className='flex bg-slate-700/50 rounded-xl p-1'>
+                <button
+                  onClick={() => setConference('west')}
+                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${conference === 'west'
+                    ? 'bg-blue-700 text-white'
+                    : 'bg-transparent text-gray-400 hover:text-white'
+                    }`}
+                >Western</button>
+                <button
+                  onClick={() => setConference('east')}
+                  className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${conference === 'east'
+                    ? 'bg-red-600 text-white'
+                    : 'bg-transparent text-gray-400 hover:text-white'
+                    }`}>Eastern</button>
+              </div>
+            </div>
+            <div className='flex flex-col'>
+              <hr className=' text-gray-400/20 mt-2' />
+              <div className='flex justify-between mt-2 gap-8'>
+                <div className='ml-3 flex gap-5 items-center'>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>Rank</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>Team</p>
+                </div>
+                <div className='flex mr-4 gap-5 items-center'>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>W</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>L</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>PCT</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>Home</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>Away</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>Streak</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>PPG</p>
+                  <p className='font-bold text-sm text-gray-400 uppercase'>OPPG</p>
+                </div>
+              </div>
+              <hr className=' text-gray-400/20 mt-2 mb-2' />
+            </div>
+            {/*Display Standings */}
+            <div>
+              {conference === 'west' ? <WesternStandings /> : <EasternStandings />}
+            </div>
+          </div>
+          {/*Top Performers */}
+          <div className='rounded-xl bg-linear-to-tr from-[#0d121d] to-[#1a1f2b] border border-gray-400/20 p-5 w-full'>
+            <div className='flex flex-col'>
+              <div className='flex items-center'>
+                <Award className='w-6 h-6 text-yellow-400 mr-2'/>
+                <p className='text-2xl font-bold'>Top Performers</p>
+              </div>
+              <div className='flex items-center mt-3'>
+                <button 
+                onClick={() => setStats('points')}
+                className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'points'
+                    ? 'bg-yellow-500/20 text-yellow-400'
+                    : 'bg-transparent text-gray-400 hover:text-white'
+                    }`}>Points</button>
+                <button
+                onClick={() => setStats('rebounds')}
+                className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'rebounds'
+                    ? 'bg-blue-500/20 text-blue-400'
+                    : 'bg-transparent text-gray-400 hover:text-white'
+                    }`}>Rebounds</button>
+                <button
+                onClick={() => setStats('assists')}
+                className={`font-semibold px-4 py-2 rounded-xl transition-colors cursor-pointer ${stats === 'assists'
+                    ? 'bg-green-500/20 text-green-400'
+                    : 'bg-transparent text-gray-400 hover:text-white'
+                    }`}>Assists</button>
+              </div>
+              <hr className=' text-gray-400/20 mt-2 mb-2' />
+              {/*Display Top Stats */}
+              {stats === 'points' ? <TopPoints /> : stats === 'rebounds' ? <TopRebounds /> : <TopAssists />}
+            </div>
+          </div>
         </div>
       </div>
     </section>

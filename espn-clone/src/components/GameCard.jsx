@@ -50,7 +50,7 @@ export const GameCard = () => {
             <p className="text-gray-600 shrink-0">-</p>
           </div>
         </div>
-
+        
         {/* Divider */}
         <div className="my-3 h-px w-full bg-white/10" />
 
