@@ -2,8 +2,8 @@ import React from 'react'
 
 const Scores = () => {
   return (
-    <section>
-      <div>Scores</div>
+    <section className='text-white mt-32'>
+      
     </section>
   )
 }

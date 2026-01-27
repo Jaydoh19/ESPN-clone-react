@@ -5,6 +5,7 @@ import Scores from './pages/Scores'
 import Standings from './pages/Standings'
 import Stats from './pages/Stats'
 import Navbar from './layout/Navbar'
+import Footer from './layout/Footer'
 import Teams from './pages/Teams'
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/stats" element={<Stats />} />
         <Route path="/teams" element={<Teams />} />
       </Routes>
+      <Footer />
     </>
   )
 }

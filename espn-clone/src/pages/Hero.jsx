@@ -203,7 +203,7 @@ const Hero = () => {
                     : 'bg-transparent text-gray-400 hover:text-white'
                     }`}>Assists</button>
               </div>
-              <hr className=' text-gray-400/20 mt-2 mb-2' />
+              <hr className=' text-gray-400/20 mt-2' />
               {/*Display Top Stats */}
               {stats === 'points' ? <TopPoints /> : stats === 'rebounds' ? <TopRebounds /> : <TopAssists />}
             </div>

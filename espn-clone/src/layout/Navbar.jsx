@@ -13,8 +13,8 @@ const Navbar = () => {
       <div className="flex items-center justify-center md:justify-between mx-auto md:w-3/4 lg:w-1/2">
         <div className='flex items-center gap-3'>
           <img
-            className='w-5 h-5 scale-500  mr-10 md:mr-5 cursor-pointer'
-            src="/logo.png"
+            className='w-5 h-5 scale-500 mr-10 md:mr-5 cursor-pointer'
+            src="/logo2.png"
             alt="logo"
             onClick={() => navigate('/')} />
           <div className=' md:block text-nowrap hidden'>
