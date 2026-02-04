@@ -3,6 +3,7 @@
 @import "tailwindcss";
 
 
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -13,6 +14,8 @@
     font-family: "Roboto", sans-serif;
     color: white;
   }
+
+  
 }
 
 @layer components {

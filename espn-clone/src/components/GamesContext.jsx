@@ -75,7 +75,7 @@ export function GamesProvider({ children }) {
   // initial load
   loadTodaysGames();
 
-  // keep polling (5 min)
+ 
   const id = setInterval(loadTodaysGames, 60000);
 
   return () => {
