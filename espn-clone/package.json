@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@balldontlie/sdk": "^1.2.2",
     "@tailwindcss/vite": "^4.1.18",
+    "dayjs": "^1.11.19",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
