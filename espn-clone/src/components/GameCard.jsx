@@ -75,7 +75,6 @@ export const GameCard = ({ game }) => {
             <p className="text-md font-semibold text-yellow-white">
               {extractClock(game.time)}</p>
           </div>
-          <p className="text-xs text-gray-500 whitespace-nowrap">ESPN</p>
         </div>
 
         {/* Teams */}
